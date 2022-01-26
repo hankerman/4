@@ -32,8 +32,8 @@ void cards(char arr[][9], int size, int size2, char card, char suit) {
         arr[2][1] = suitt;
         arr[2][4] = suitt;
         arr[11][4] = suitt;
-        arr[12][6] = suitt;
-        arr[12][7] = 50;
+        arr[13][6] = suitt;
+        arr[13][7] = 50;
         break;
     case '3':
 
@@ -42,8 +42,8 @@ void cards(char arr[][9], int size, int size2, char card, char suit) {
         arr[2][4] = suitt;
         arr[7][4] = suitt;
         arr[11][4] = suitt;
-        arr[12][6] = suitt;
-        arr[12][7] = 51;
+        arr[13][6] = suitt;
+        arr[13][7] = 51;
         break;
     case '4':
 
@@ -53,8 +53,8 @@ void cards(char arr[][9], int size, int size2, char card, char suit) {
         arr[3][2] = suitt;
         arr[11][2] = suitt;
         arr[11][6] = suitt;
-        arr[12][6] = suitt;
-        arr[12][7] = 52;
+        arr[13][6] = suitt;
+        arr[13][7] = 52;
         break;
     case '5':
 
@@ -65,8 +65,8 @@ void cards(char arr[][9], int size, int size2, char card, char suit) {
         arr[7][4] = suitt;
         arr[11][2] = suitt;
         arr[11][6] = suitt;
-        arr[12][6] = suitt;
-        arr[12][7] = 53;
+        arr[13][6] = suitt;
+        arr[13][7] = 53;
         break;
     case '6':
 
@@ -78,8 +78,8 @@ void cards(char arr[][9], int size, int size2, char card, char suit) {
         arr[7][6] = suitt;
         arr[11][2] = suitt;
         arr[11][6] = suitt;
-        arr[12][6] = suitt;
-        arr[12][7] = 54;
+        arr[13][6] = suitt;
+        arr[13][7] = 54;
         break;
     case '7':
 
@@ -217,17 +217,42 @@ int main()
         {92,61,61,61,61,61,61,61,47}
     };
 
-
     
+    bool proverka = false;
     char suit, card;
 
-    cout << "Выберите масть (S - пики, H - червы, C - дрефы или крести, D - бубны): ";
-    cin >> suit;
-    cout << "Выберите масть ( 2,3,4,5,6,7,8,9,10,J,D,K,A): ";
-    cin >> card;
-    if (card == '10') {
-        card = 1;
+    while (proverka != true) {
+        cout << "Выберите масть (S - пики, H - червы, C - дрефы или крести, D - бубны): ";
+        cin >> suit;
+        if (suit == 's' || suit == 'S' || suit == 'h' || suit == 'H' || suit == 'd' || suit == 'D' || suit == 'c' || suit == 'C') {
+            proverka = true;
+        }
+        else {
+            cout << "Такой масти нет, попробуй снова." << endl;
+            proverka = false;
+        }
     }
+    proverka = false;
+    
+    while (proverka != true) {
+        cout << "Выберите карту ( 2,3,4,5,6,7,8,9,10 (введите 1),J,D,K,A): ";
+        cin >> card;
+        cout << endl;
+        if (card == '2' || card == '3' || card == '4' || card == '5' || card == '6' || card == '7' || card == '8' || card == '9' || card == '1') {
+            
+            proverka = true;
+                           
+        }
+        else if (card == 'j' || card == 'J' || card == 'q' || card == 'Q' || card == 'k' || card == 'K' || card == 'a' || card == 'A') {
+            proverka = true;
+        }                
+        else {
+            cout << "Такой карты нет, попробуй снова." << endl;
+            proverka = true;
+        }
+
+    }
+    
 
     
 
@@ -255,4 +280,7 @@ int main()
         }
     }
     SetColor(7, 0);
+
+    system("pause");
+    return 0;
 }
